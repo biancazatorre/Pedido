@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARBIE E KEN</title>
+
+    
+
+</head>
+<body>
+        
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-color: #fa0397;
+    font-family:'Montserrat', sans-serif;
+    color: white;
+    text-shadow: 1px 2px 2px black;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 125px;
+}
+h1{
+    font-size: 50px;
+}
+#conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#area{
+    background-color: rgb(235, 172, 211);
+    width: 550px;
+    height: 390px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 15px;
+    box-shadow: 1px 3px 3px 2px rgba(1, 1, 1, .5);
+}
+#opcNo:hover{
+    color: #fa0397;
+}
+#opcyes:hover{
+    color: #fa0397;
+}
+.option{
+    background-color: pink;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    font-size: 35px;
+    border-radius: 15px;
+    transition: all .5s;
+    box-shadow: 1px 3px 3px 2px rgba(1, 1, 1, .5);
+    cursor: pointer;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(243, 187, 220);
+    font-size: 50px;
+    margin-top: 45px;
+    transition: all .5s;
+}
+    </style>
+    <header>
+        <h1>QUER SER MEU KEN?</h1>
+    </header>
+    <main id="conteiner">
+        <div id="area">
+            <div class="option" id="opcyes">
+                sim
+            </div>
+            <div class="option" id="opcNo">
+                não
+            </div>
+        </div>
+    </main>
+    <footer id="textinho">
+        
+    </footer>
+</body>
+
+<script>
+    const sim = window.document.getElementById("opcyes")
+const nao = window.document.getElementById("opcNo")
+const fundo = window.document.getElementById("area")
+const resp = window.document.getElementById("textinho")
+
+nao.addEventListener("mouseenter", entrar)
+let estado = -1
+
+function entrar(){
+estado++
+if (estado == 0){
+    sim.style.transform="translate(+95px)"
+    nao.style.transform="translate(130px, -150px)"
+}
+if (estado == 1){
+    nao.style.transform="translate(130px, +150px)"
+}
+if (estado == 2){
+    nao.style.transform="translate(-325px, +150px)"
+}
+if (estado == 3){
+    nao.style.transform="translate(-325px, -150px)"
+}
+if (estado == 4){
+    nao.style.transform="translate(+135px, +150px)"
+}
+if (estado == 5){
+    nao.style.transform="translate(+135px, -150px)"
+}
+if (estado == 6){
+    nao.style.transform="translate(-325px, +150px)"
+}
+if (estado == 7){
+    nao.style.transform="translate(-325px, -150px)"
+    estado = -1
+}
+}
+
+sim.addEventListener("click", clicar)
+
+function clicar(){
+resp.innerHTML ="EBA TE AMO"
+sim.style.transform="translate(0px)"
+nao.style.transform="translate(0px, 0px)"
+
+resp.style.opacity= 1;
+
+setTimeout(function(){
+    resp.style.opacity = 0;
+  }, 3000 )
+
+}
+</script>
+</html>
